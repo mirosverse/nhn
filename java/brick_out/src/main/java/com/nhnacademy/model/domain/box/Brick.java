@@ -1,15 +1,15 @@
 package com.nhnacademy.model.domain.box;
 
+import com.nhnacademy.model.Config;
 import com.nhnacademy.model.interfaces.Breakable;
 
 public class Brick extends MovableBox implements Breakable {
-    public static final BrickStatus DEFAULT_BRICK_STATUS = BrickStatus.EASY;
 
     private int hp;
     private BrickStatus status;
 
     public Brick(int x, int y, int width, int height) {
-        this(x, y, width, height, DEFAULT_BRICK_STATUS);
+        this(x, y, width, height, Config.DEFAULT_BRICKSTATUS);
     }
 
     public Brick(int x, int y, int width, int height, BrickStatus status) {

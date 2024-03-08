@@ -7,9 +7,6 @@ import java.awt.Color;
 
 
 public class MovableBall extends Ball implements Movable {
-    public static final int DEFAULT_DX = 0;
-    public static final int DEFAULT_DY = 0;
-
     final Vector motion = new Vector();
 
     public MovableBall(int x, int y, int radius) {

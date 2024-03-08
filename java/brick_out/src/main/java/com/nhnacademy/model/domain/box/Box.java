@@ -1,5 +1,6 @@
 package com.nhnacademy.model.domain.box;
 
+import com.nhnacademy.model.Config;
 import com.nhnacademy.model.interfaces.Paintable;
 import com.nhnacademy.model.interfaces.Regionable;
 import org.apache.logging.log4j.LogManager;
@@ -9,7 +10,6 @@ import java.awt.*;
 
 public class Box implements Regionable, Paintable {
 
-    public static final Color DEFAULT_COLOR = Color.ORANGE;
     static int count = 0;
     int id = ++count;
 
@@ -19,7 +19,7 @@ public class Box implements Regionable, Paintable {
     private final Rectangle region;
 
     public Box(int x, int y, int width, int height) {
-        this(x, y, width, height, DEFAULT_COLOR);
+        this(x, y, width, height, Config.BOX_DEFAULT_COLOR);
     }
 
     public Box(int x, int y, int width, int height, Color color) {

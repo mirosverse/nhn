@@ -4,13 +4,13 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
+import com.nhnacademy.model.Config;
 import com.nhnacademy.model.interfaces.Paintable;
 import com.nhnacademy.model.interfaces.Regionable;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Ball implements Regionable, Paintable {
-    private static final Color DEFAULT_COLOR = Color.BLACK;
     private static int count = 0;
     private int id = ++count;
 
@@ -20,7 +20,7 @@ public class Ball implements Regionable, Paintable {
     private Color color;
 
     public Ball(int x, int y, int radius) {
-        this(x, y, radius, DEFAULT_COLOR);
+        this(x, y, radius, Config.BALL_DEFAULT_COLOR);
     }
 
     public Ball(int x, int y, int radius, Color color) {

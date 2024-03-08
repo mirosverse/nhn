@@ -1,11 +1,13 @@
 package com.nhnacademy.model.domain.box;
 
+import com.nhnacademy.model.Config;
+
 import java.awt.*;
 
 public enum BrickStatus {
-    EASY(1, 1, Color.YELLOW),
-    HARD(3, 5, Color.ORANGE),
-    Unbreakable(-1, 0, Color.DARK_GRAY);
+    EASY(Config.BRICK_EASY_HP, Config.BRICK_EASY_SCORE, Config.BRICK_EASY_COLOR),
+    HARD(Config.BRICK_HARD_HP, Config.BRICK_HARD_SCORE, Config.BRICK_HARD_COLOR),
+    Unbreakable(Config.BRICK_EASY_HP, Config.BRICK_EASY_HP, Config.BRICK_UNBREAKABLE_COLOR),
 
     private int hp;
     private int score;
