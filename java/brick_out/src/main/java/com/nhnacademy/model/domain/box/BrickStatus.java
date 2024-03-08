@@ -7,7 +7,7 @@ import java.awt.*;
 public enum BrickStatus {
     EASY(Config.BRICK_EASY_HP, Config.BRICK_EASY_SCORE, Config.BRICK_EASY_COLOR),
     HARD(Config.BRICK_HARD_HP, Config.BRICK_HARD_SCORE, Config.BRICK_HARD_COLOR),
-    Unbreakable(Config.BRICK_EASY_HP, Config.BRICK_EASY_HP, Config.BRICK_UNBREAKABLE_COLOR),
+    Unbreakable(Config.BRICK_EASY_HP, Config.BRICK_EASY_HP, Config.BRICK_UNBREAKABLE_COLOR);
 
     private int hp;
     private int score;
