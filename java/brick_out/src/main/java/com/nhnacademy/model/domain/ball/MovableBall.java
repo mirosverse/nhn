@@ -1,4 +1,7 @@
-package com.nhnacademy;
+package com.nhnacademy.model.domain.ball;
+
+import com.nhnacademy.model.interfaces.Movable;
+import com.nhnacademy.Vector;
 
 import java.awt.Color;
 
@@ -8,6 +11,10 @@ public class MovableBall extends Ball implements Movable {
     public static final int DEFAULT_DY = 0;
 
     final Vector motion = new Vector();
+
+    public MovableBall(int x, int y, int radius) {
+        super(x, y, radius);
+    }
 
     public MovableBall(int x, int y, int radius, Color color) {
         super(x, y, radius, color);
@@ -33,6 +40,7 @@ public class MovableBall extends Ball implements Movable {
         motion.setDY(dy);
     }
 
+    @Override
     public void move() {
         moveTo(getX() + getDX(), getY() + getDY());
         logger.trace("{} : {}, {}, {}, {}", getId(), getX(), getY(), getRegion().getX(), getRegion().getY());

@@ -1,9 +1,10 @@
-package com.nhnacademy;
+package com.nhnacademy.model.domain.ball;
 
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
+import com.nhnacademy.model.interfaces.Regionable;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -17,9 +18,8 @@ public class Ball implements Regionable {
     private Rectangle region;
     private Color color;
 
-
     public Ball(int x, int y, int radius) {
-        this(x,y,radius, DEFAULT_COLOR);
+        this(x, y, radius, DEFAULT_COLOR);
     }
 
     public Ball(int x, int y, int radius, Color color) {
@@ -78,7 +78,6 @@ public class Ball implements Regionable {
 
 
     /**
-     *
      * @param color
      * @throws IllegalArgumentException color는 null 허용하지 않습니다
      */
@@ -102,6 +101,6 @@ public class Ball implements Regionable {
 
         g.setColor(originalColor);
     }
-    
-    
+
+
 }
