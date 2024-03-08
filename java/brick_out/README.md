@@ -27,17 +27,27 @@
 
 ### 도메인 정리
 
-- GameWorld ---- JFrame 
+- GameWorld ---- JFrame
 
-- Ball (Regionable, Bounded, Movable)
+
+- Ball (Regionable)  
     - color, region
+
+- --- BoundedBall (Bounded)
+
+- ------ MovableBall (Movable)
+
 
 - Box (Regionable)
     - color, region
-    
 
-- Brick --- Box (Breakable)
-    - score, 
+
+- ---MovableBox (Movable)
+  - Vector
+
+
+- ------ Brick (Breakable)
+    - score, hp
     - hp가 1이면 한번에 깨진다. (점수 +1)
       - hp가 3이면 3번에 깨진다. (점수 +3)
       - hp가 -1이면 깨지지 않는다.  // 무한
@@ -59,4 +69,9 @@
     - Paintable(Ball) : 단색 또는 복수의 색 사용이 가능하다.
     - Bounded(Ball) : 반사 가능하다
     - Movable(Ball, Control Bar) 
+    - Breakable(Brick)
+      -    - hp가 1이면 한번에 깨진다. (점수 +1)
+      - hp가 3이면 3번에 깨진다. (점수 +3)
+      - hp가 -1이면 깨지지 않는다.  // 무한
+          - ex. 깨지지 않는 벽돌, 컨트롤 바, 점수판
 - 

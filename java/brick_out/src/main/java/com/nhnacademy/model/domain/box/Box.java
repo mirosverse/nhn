@@ -16,7 +16,7 @@ public class Box implements Regionable, Paintable {
     Logger logger = LogManager.getLogger(this.getClass().getSimpleName());
 
     private Color color;
-    private Rectangle region;
+    private final Rectangle region;
 
     public Box(int x, int y, int width, int height) {
         this(x, y, width, height, DEFAULT_COLOR);

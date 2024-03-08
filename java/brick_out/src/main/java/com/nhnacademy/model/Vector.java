@@ -1,4 +1,4 @@
-package com.nhnacademy;
+package com.nhnacademy.model;
 
 public class Vector {
     // dx , dy 변수

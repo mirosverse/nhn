@@ -1,23 +1,23 @@
-package com.nhnacademy.model.domain.ball;
+package com.nhnacademy.model.domain.box;
 
-import com.nhnacademy.model.interfaces.Movable;
 import com.nhnacademy.model.Vector;
+import com.nhnacademy.model.interfaces.Breakable;
+import com.nhnacademy.model.interfaces.Movable;
 
-import java.awt.Color;
+import java.awt.*;
 
-
-public class MovableBall extends Ball implements Movable {
+public class MovableBox extends Box implements Movable {
     public static final int DEFAULT_DX = 0;
     public static final int DEFAULT_DY = 0;
 
     final Vector motion = new Vector();
 
-    public MovableBall(int x, int y, int radius) {
-        super(x, y, radius);
+    public MovableBox(int x, int y, int width, int height) {
+        super(x, y, width, height);
     }
 
-    public MovableBall(int x, int y, int radius, Color color) {
-        super(x, y, radius, color);
+    public MovableBox(int x, int y, int width, int height, Color color) {
+        super(x, y, width, height, color);
     }
 
     public Vector getMotion() {
@@ -43,7 +43,7 @@ public class MovableBall extends Ball implements Movable {
     @Override
     public void move() {
         moveTo(getX() + getDX(), getY() + getDY());
-        logger.trace("{} : {}, {}, {}, {}", getId(), getX(), getY(), getRegion().getX(), getRegion().getY());
+//        logger.trace("{} : {}, {}, {}, {}", getId(), getX(), getY(), getRegion().getX(), getRegion().getY());
     }
 
     public void moveTo(int x, int y) {
