@@ -44,7 +44,7 @@ public class TestWorld {
         PaintableBox topWall = new PaintableBox(0, 0, WALL_WIDTH, WALL_HEIGHT, Color.BLACK);
         PaintableBox bottomWall = new PaintableBox(0, FRAME_HEIGHT - WALL_HEIGHT, WALL_WIDTH, WALL_HEIGHT, Color.BLACK);
         PaintableBox leftWall = new PaintableBox(0, WALL_HEIGHT, WALL_HEIGHT, WALL_WIDTH - WALL_HEIGHT, Color.BLACK);
-        PaintableBox rightWall = new PaintableBox(FRAME_WIDTH - WALL_HEIGHT, 0, WALL_HEIGHT, WALL_WIDTH, Color.BLACK);
+        PaintableBox rightWall = new PaintableBox(FRAME_WIDTH - WALL_HEIGHT, 0, WALL_HEIGHT, WALL_WIDTH + WALL_HEIGHT, Color.BLACK);
 
         world.add(topWall);
         world.add(bottomWall);
