@@ -33,14 +33,15 @@
     - color, region
 
 - Box (Regionable)
-    - color, hp, region
-    - hp가 1이면 한번에 깨진다. (점수 +1)
-    - hp가 3이면 3번에 깨진다. (점수 +3)
-    - hp가 -1이면 깨지지 않는다.  // 무한
-        - ex. 깨지지 않는 벽돌, 컨트롤 바, 점수판 
+    - color, region
+    
 
-- Brick --- Box
+- Brick --- Box (Breakable)
     - score, 
+    - hp가 1이면 한번에 깨진다. (점수 +1)
+      - hp가 3이면 3번에 깨진다. (점수 +3)
+      - hp가 -1이면 깨지지 않는다.  // 무한
+          - ex. 깨지지 않는 벽돌, 컨트롤 바, 점수판
 
 
 - Control Bar --- Box 

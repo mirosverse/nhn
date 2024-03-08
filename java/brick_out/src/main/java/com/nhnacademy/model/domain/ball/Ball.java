@@ -4,11 +4,12 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
+import com.nhnacademy.model.interfaces.Paintable;
 import com.nhnacademy.model.interfaces.Regionable;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class Ball implements Regionable {
+public class Ball implements Regionable, Paintable {
     private static final Color DEFAULT_COLOR = Color.BLACK;
     private static int count = 0;
     private int id = ++count;
@@ -89,6 +90,7 @@ public class Ball implements Regionable {
         this.color = color;
     }
 
+    @Override
     public void paint(Graphics g) {
         if (g == null) {
             throw new IllegalArgumentException();
