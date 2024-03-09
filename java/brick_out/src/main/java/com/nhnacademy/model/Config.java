@@ -1,17 +1,17 @@
 package com.nhnacademy.model;
 
+import com.nhnacademy.controller.GameSetting;
 import com.nhnacademy.model.domain.box.BrickStatus;
 
 import java.awt.*;
 
 public class Config {
 
+    // 게임 모드
+    public  static final GameSetting DEFAULT_MODE = GameSetting.HARD;
+
     // Ball
     public static final Color BALL_DEFAULT_COLOR = Color.LIGHT_GRAY;
-
-//    // MovableBall
-//    public static final int DEFAULT_DX = 0;
-//    public static final int DEFAULT_DY = 0;
 
     // Box
     public static final Color BOX_DEFAULT_COLOR = Color.GRAY;

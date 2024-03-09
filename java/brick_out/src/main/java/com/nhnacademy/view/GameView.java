@@ -19,7 +19,6 @@ public class GameView extends JPanel {
 
     public GameView() {
         setSize(Config.FRAME_WIDTH, Config.FRAME_HEIGHT);
-
     }
 
     public void init() {

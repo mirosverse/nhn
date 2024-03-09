@@ -23,8 +23,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import static com.sun.java.accessibility.util.AWTEventMonitor.addMouseMotionListener;
-
 public class GameController implements MouseMotionListener, MouseListener {
     private static GameController instance;
     Logger logger = LogManager.getLogger(this.getClass().getSimpleName());
@@ -66,8 +64,8 @@ public class GameController implements MouseMotionListener, MouseListener {
         frame.setVisible(true);
         frame.add(view);
 
-        view.addBricks(createBricks(GameSetting.HARD));
-        view.addBalls(createBalls(GameSetting.EASY));
+        view.addBricks(createBricks(Config.DEFAULT_MODE));
+        view.addBalls(createBalls(Config.DEFAULT_MODE));
         view.addMouseListener(this);
         view.addMouseMotionListener(this);
 
@@ -250,13 +248,10 @@ public class GameController implements MouseMotionListener, MouseListener {
     public void mouseDragged(MouseEvent e) {
         if (isDragging) {
             int dx = e.getX() - dragStartX;
-
-            // 드래그 방향 벡터만큼 컨트롤바 위치 이동
             controlBar.getRegion().setLocation(controlBar.getRegion().x + dx, controlBar.getRegion().y);
             // logger.info("드래그 중...  x: ({}), y: ({})    dx: ({})", controlBar.getX(), controlBar.getY(), dx);
             dragStartX = e.getX();
             dragStartY = e.getY();
-
         }
     }
 
