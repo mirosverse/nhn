@@ -61,7 +61,7 @@ public class GameController implements MouseMotionListener, MouseListener {
         view.init();
         frame = new JFrame("Brick Out");
         Insets insets = frame.getInsets();
-        frame.setSize(Config.FRAME_WIDTH, Config.FRAME_HEIGHT);
+        frame.setSize(Config.FRAME_WIDTH + 16, Config.FRAME_HEIGHT + 39);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setVisible(true);
         frame.add(view);
@@ -129,7 +129,7 @@ public class GameController implements MouseMotionListener, MouseListener {
                 Regionable other = regionables.get(j);
                 if (isCollision(object, other)) {
                     ((Bounded) object).bounce(other);
-                    if(other instanceof ControlBar){
+                    if (other instanceof ControlBar) {
                         controlBar.updateSize();
                     }
                     if (other instanceof Brick) {
@@ -226,8 +226,10 @@ public class GameController implements MouseMotionListener, MouseListener {
     public void mousePressed(MouseEvent e) {
         dragStartX = e.getX();
         dragStartY = e.getY();
+
         if (controlBar.getRegion().contains(dragStartX, dragStartY)) {
             isDragging = true;
+            logger.info("마우스 클릭...  x: ({}), y: ({})    dx: ({})", dragStartX, dragStartY);
         }
     }
 
@@ -248,11 +250,12 @@ public class GameController implements MouseMotionListener, MouseListener {
     public void mouseDragged(MouseEvent e) {
         if (isDragging) {
             int dx = e.getX() - dragStartX;
-            dragStartX = e.getX();
 
             // 드래그 방향 벡터만큼 컨트롤바 위치 이동
-            controlBar.getRegion().setLocation(controlBar.getX() + dx, controlBar.getY());
-            logger.info("드래그 중...  x: ({}), y: ({})    dx: ({})", controlBar.getX(), controlBar.getY(), dx);
+            controlBar.getRegion().setLocation(controlBar.getRegion().x + dx, controlBar.getRegion().y);
+            // logger.info("드래그 중...  x: ({}), y: ({})    dx: ({})", controlBar.getX(), controlBar.getY(), dx);
+            dragStartX = e.getX();
+            dragStartY = e.getY();
 
         }
     }
