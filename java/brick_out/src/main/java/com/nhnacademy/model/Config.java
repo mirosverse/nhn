@@ -36,13 +36,18 @@ public class Config {
     public static final Color CONTROL_DEFAULT_COLOR = Color.GRAY;
 
     //PlayBoard
-    public static final Color PLAYBOARD_DEFAULT_COLOR = Color.GRAY;
+    public static final Color PLAYBOARD_DEFAULT_COLOR = Color.BLACK;
+    public static final Color PLAYBOARD_FONT_COLOR = Color.WHITE;
+    public static final int PANEL_SIZE = 20;
+
 
 
     // view
     public static final int DEFAULT_DT = 10;
     public static final int WALL_THICKNESS = 18;
     public static final int CONTROL_DEFAULT_WIDTH = 300;
+    public static final int PLAYBOARD_THICKNESS = 18;
+
 
     // controller
     public static final int FRAME_WIDTH = 500;

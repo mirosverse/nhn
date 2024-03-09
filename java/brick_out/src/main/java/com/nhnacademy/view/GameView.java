@@ -4,6 +4,7 @@ import com.nhnacademy.controller.GameController;
 import com.nhnacademy.model.Config;
 import com.nhnacademy.model.domain.box.Box;
 import com.nhnacademy.model.domain.box.ControlBar;
+import com.nhnacademy.model.domain.box.PlayBoard;
 import com.nhnacademy.model.interfaces.Paintable;
 import com.nhnacademy.model.interfaces.Regionable;
 
@@ -21,14 +22,18 @@ public class GameView extends JPanel {
     public void init() {
         controller = GameController.getInstance();
 
+        // 점수판 설정
+        PlayBoard playBoard = new PlayBoard(0, 0, Config.FRAME_WIDTH, Config.PLAYBOARD_THICKNESS);
+
         // 벽 설정
-        Box topWall = new Box(Config.WALL_THICKNESS, 0, Config.FRAME_WIDTH - Config.WALL_THICKNESS * 2, Config.WALL_THICKNESS);
-        Box leftWall = new Box(0, 0, Config.WALL_THICKNESS, Config.FRAME_HEIGHT);
-        Box rightWall = new Box(Config.FRAME_WIDTH - Config.WALL_THICKNESS, 0, Config.WALL_THICKNESS, Config.FRAME_HEIGHT);
+        Box topWall = new Box(Config.WALL_THICKNESS, Config.PLAYBOARD_THICKNESS, Config.FRAME_WIDTH - Config.WALL_THICKNESS * 2, Config.WALL_THICKNESS);
+        Box leftWall = new Box(0, Config.PLAYBOARD_THICKNESS, Config.WALL_THICKNESS, Config.FRAME_HEIGHT-Config.PLAYBOARD_THICKNESS);
+        Box rightWall = new Box(Config.FRAME_WIDTH - Config.WALL_THICKNESS, Config.PLAYBOARD_THICKNESS, Config.WALL_THICKNESS, Config.FRAME_HEIGHT-Config.PLAYBOARD_THICKNESS);
 
         // 컨트롤바 설정
         ControlBar controlBar = new ControlBar((Config.FRAME_WIDTH - Config.CONTROL_DEFAULT_WIDTH) / 2, Config.FRAME_HEIGHT - Config.WALL_THICKNESS, Config.CONTROL_DEFAULT_WIDTH, Config.WALL_THICKNESS);
 
+        controller.add(playBoard);
         controller.add(topWall);
         controller.add(leftWall);
         controller.add(rightWall);
