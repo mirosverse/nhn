@@ -36,15 +36,19 @@ public class PlayBoard extends Box {
         Font font = new Font("Arial", Font.BOLD, 14);  // 폰트 설정
         g.setFont(font);
 
+        Color originalColor = g.getColor();
+
         // id 표시
-        int x = Config.PANEL_SIZE/2;  // 왼쪽에서 약간의 여백을 두고 표시
+        int x = Config.PANEL_SIZE / 2;  // 왼쪽에서 약간의 여백을 두고 표시
         int y = Config.PLAYBOARD_THICKNESS / 2 + 6;  // 박스의 세로 중간에 표시
         g.setColor(Config.PLAYBOARD_FONT_COLOR);
-        g.drawString(getId()+"P", x, y);
+        g.drawString(getId() + "P", x, y);
 
         // score 표시
         x = Config.FRAME_WIDTH - Config.PANEL_SIZE - g.getFontMetrics().stringWidth("Score: " + getScore());  // 오른쪽 끝에 표시
         g.drawString("Score: " + getScore(), x, y);
+
+        g.setColor(originalColor);
     }
 
 }

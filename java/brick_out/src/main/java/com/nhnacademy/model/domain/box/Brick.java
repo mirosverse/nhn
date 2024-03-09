@@ -4,7 +4,6 @@ import com.nhnacademy.model.Config;
 import com.nhnacademy.model.interfaces.Breakable;
 
 public class Brick extends MovableBox implements Breakable {
-
     private int hp;
     private BrickStatus status;
 
@@ -14,12 +13,17 @@ public class Brick extends MovableBox implements Breakable {
 
     public Brick(int x, int y, int width, int height, BrickStatus status) {
         super(x, y, width, height, status.getColor());
+        this.status = status;
         this.hp = status.getInitHp();
+    }
+
+    public BrickStatus getStatus() {
+        return status;
     }
 
     @Override
     public boolean isBroken() {
-        return !status.isUnbreakble() && hp == 0;
+        return !status.isUnbreakable() && hp == 0;
     }
 
     public int getScore() {

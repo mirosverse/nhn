@@ -4,6 +4,8 @@ import com.nhnacademy.model.Config;
 import com.nhnacademy.model.domain.ball.Ball;
 import com.nhnacademy.model.domain.ball.BoundedBall;
 import com.nhnacademy.model.domain.ball.MovableBall;
+import com.nhnacademy.model.domain.box.Brick;
+import com.nhnacademy.model.domain.box.BrickStatus;
 import com.nhnacademy.model.interfaces.Bounded;
 import com.nhnacademy.model.interfaces.Movable;
 import com.nhnacademy.model.interfaces.Regionable;
@@ -14,8 +16,10 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 public class GameController implements MouseMotionListener {
     private static GameController instance;
@@ -46,9 +50,30 @@ public class GameController implements MouseMotionListener {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setVisible(true);
         frame.add(view);
+
+        view.addBricks(createBricks(GameSetting.EASY));
+
+
         setMaxMoveCount(Config.MAX_MOVE_COUNT);
         run();
     }
+
+    public List<Brick> createBricks(GameSetting mode) {
+        List<Brick> bricks = new ArrayList<>();
+        int numOfBricksX = (Config.FRAME_WIDTH - Config.WALL_THICKNESS * 2) / (Config.BRICK_WIDTH + Config.BRICK_MARGIN);
+
+        for (int i = 0; i < numOfBricksX * Config.BRICK_LINES * mode.getEasyBrickRatio(); i++) {
+            bricks.add(new Brick(0, 0, Config.BRICK_WIDTH, Config.BRICK_HEIGHT, BrickStatus.EASY));
+        }
+        for (int i = 0; i < numOfBricksX * Config.BRICK_LINES * mode.getHardBrickRatio(); i++) {
+            bricks.add(new Brick(0, 0, Config.BRICK_WIDTH, Config.BRICK_HEIGHT, BrickStatus.HARD));
+        }
+        for (int i = 0; i < numOfBricksX * Config.BRICK_LINES * mode.getUnbreakableBrickRatio(); i++) {
+            bricks.add(new Brick(0, 0, Config.BRICK_WIDTH, Config.BRICK_HEIGHT, BrickStatus.Unbreakable));
+        }
+        return bricks;
+    }
+
 
     // 공의 이동을 담당
     public void move() {

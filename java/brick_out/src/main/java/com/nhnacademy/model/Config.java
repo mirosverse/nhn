@@ -22,15 +22,12 @@ public class Config {
     // BrickStatus
     public static final int BRICK_EASY_HP = 1;
     public static final int BRICK_EASY_SCORE = 1;
-    public static final Color BRICK_EASY_COLOR = Color.YELLOW;
 
     public static final int BRICK_HARD_HP = 3;
     public static final int BRICK_HARD_SCORE = 3;
-    public static final Color BRICK_HARD_COLOR = Color.ORANGE;
 
     public static final int BRICK_UNBREAKABLE_HP = -1;  // 예외 처리
     public static final int BRICK_UNBREAKABLE_SCORE = 0;
-    public static final Color BRICK_UNBREAKABLE_COLOR = Color.DARK_GRAY;
 
     // ControlBar
     public static final Color CONTROL_DEFAULT_COLOR = Color.GRAY;
@@ -41,18 +38,26 @@ public class Config {
     public static final int PANEL_SIZE = 20;
 
 
-
     // view
     public static final int DEFAULT_DT = 10;
     public static final int WALL_THICKNESS = 18;
     public static final int CONTROL_DEFAULT_WIDTH = 300;
     public static final int PLAYBOARD_THICKNESS = 18;
+    public static final int BRICK_WIDTH = 48;
+    public static final int BRICK_HEIGHT = 20;
+    public static final int BRICK_LINES = 10;
+    public static final int BRICK_MARGIN = 3;
 
 
     // controller
     public static final int FRAME_WIDTH = 500;
     public static final int FRAME_HEIGHT = 400;
     public static final int MAX_MOVE_COUNT = 0; // 값이 0이면 무한으로 처리
+
+
+    // GameSetting
+    // EASY모드 : All bricks are EASY;
+    // HARD모드 : Easy - 50%. Hard - 50%
 
 }
 

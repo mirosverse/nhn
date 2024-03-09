@@ -5,13 +5,13 @@ import com.nhnacademy.model.Config;
 import java.awt.*;
 
 public enum BrickStatus {
-    EASY(Config.BRICK_EASY_HP, Config.BRICK_EASY_SCORE, Config.BRICK_EASY_COLOR),
-    HARD(Config.BRICK_HARD_HP, Config.BRICK_HARD_SCORE, Config.BRICK_HARD_COLOR),
-    Unbreakable(Config.BRICK_EASY_HP, Config.BRICK_EASY_HP, Config.BRICK_UNBREAKABLE_COLOR);
+    EASY(Config.BRICK_EASY_HP, Config.BRICK_EASY_SCORE, Color.ORANGE),
+    HARD(Config.BRICK_HARD_HP, Config.BRICK_HARD_SCORE, Color.RED),
+    Unbreakable(Config.BRICK_UNBREAKABLE_HP, Config.BRICK_UNBREAKABLE_SCORE, Color.DARK_GRAY);
 
-    private int hp;
-    private int score;
-    private Color color;
+    private final int hp;
+    private final int score;
+    private final Color color;
 
     BrickStatus(int hp, int score, Color color) {
         this.hp = hp;
@@ -31,7 +31,7 @@ public enum BrickStatus {
         return score;
     }
 
-    public boolean isUnbreakble() {
+    public boolean isUnbreakable() {
         return this == Unbreakable;
     }
 }

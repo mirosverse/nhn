@@ -1,15 +1,18 @@
 package com.nhnacademy.view;
 
 import com.nhnacademy.controller.GameController;
+import com.nhnacademy.controller.GameSetting;
 import com.nhnacademy.model.Config;
+import com.nhnacademy.model.domain.box.*;
 import com.nhnacademy.model.domain.box.Box;
-import com.nhnacademy.model.domain.box.ControlBar;
-import com.nhnacademy.model.domain.box.PlayBoard;
 import com.nhnacademy.model.interfaces.Paintable;
 import com.nhnacademy.model.interfaces.Regionable;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class GameView extends JPanel {
     private GameController controller;
@@ -27,8 +30,8 @@ public class GameView extends JPanel {
 
         // 벽 설정
         Box topWall = new Box(Config.WALL_THICKNESS, Config.PLAYBOARD_THICKNESS, Config.FRAME_WIDTH - Config.WALL_THICKNESS * 2, Config.WALL_THICKNESS);
-        Box leftWall = new Box(0, Config.PLAYBOARD_THICKNESS, Config.WALL_THICKNESS, Config.FRAME_HEIGHT-Config.PLAYBOARD_THICKNESS);
-        Box rightWall = new Box(Config.FRAME_WIDTH - Config.WALL_THICKNESS, Config.PLAYBOARD_THICKNESS, Config.WALL_THICKNESS, Config.FRAME_HEIGHT-Config.PLAYBOARD_THICKNESS);
+        Box leftWall = new Box(0, Config.PLAYBOARD_THICKNESS, Config.WALL_THICKNESS, Config.FRAME_HEIGHT - Config.PLAYBOARD_THICKNESS);
+        Box rightWall = new Box(Config.FRAME_WIDTH - Config.WALL_THICKNESS, Config.PLAYBOARD_THICKNESS, Config.WALL_THICKNESS, Config.FRAME_HEIGHT - Config.PLAYBOARD_THICKNESS);
 
         // 컨트롤바 설정
         ControlBar controlBar = new ControlBar((Config.FRAME_WIDTH - Config.CONTROL_DEFAULT_WIDTH) / 2, Config.FRAME_HEIGHT - Config.WALL_THICKNESS, Config.CONTROL_DEFAULT_WIDTH, Config.WALL_THICKNESS);
@@ -38,6 +41,22 @@ public class GameView extends JPanel {
         controller.add(leftWall);
         controller.add(rightWall);
         controller.add(controlBar);
+    }
+
+    public void addBricks(List<Brick> bricks) {
+        Random random = new Random();
+        Brick cur;
+        for (int i = 0; i < Config.BRICK_LINES; i++) {
+            int x = Config.WALL_THICKNESS + Config.BRICK_MARGIN;
+            int y = Config.WALL_THICKNESS + Config.PLAYBOARD_THICKNESS + Config.BRICK_MARGIN * (i + 1) + i * Config.BRICK_HEIGHT;
+            while (x < Config.FRAME_WIDTH - Config.WALL_THICKNESS - Config.BRICK_WIDTH) {
+                cur = bricks.remove(random.nextInt(bricks.size()));
+                cur.getRegion().setLocation(x, y);
+                controller.add(cur);
+                x += Config.BRICK_WIDTH + Config.BRICK_MARGIN;
+            }
+        }
+
     }
 
 
