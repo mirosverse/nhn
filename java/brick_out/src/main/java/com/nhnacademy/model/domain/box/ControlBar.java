@@ -18,6 +18,6 @@ public class ControlBar extends MovableBox{
         if(getRegion().getWidth()<0 || getRegion().getHeight()<0){
             throw new IllegalStateException();
         }
-        // 나중에 구현
+        getRegion().setSize(getWidth() + Config.CONTROL_WIDTH_DECREASE, getHeight());
     }
 }

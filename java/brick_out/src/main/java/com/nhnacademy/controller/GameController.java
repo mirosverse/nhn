@@ -5,6 +5,7 @@ import com.nhnacademy.model.domain.ball.Ball;
 import com.nhnacademy.model.domain.ball.BoundedBall;
 import com.nhnacademy.model.domain.box.Brick;
 import com.nhnacademy.model.domain.box.BrickStatus;
+import com.nhnacademy.model.domain.box.ControlBar;
 import com.nhnacademy.model.domain.box.PlayBoard;
 import com.nhnacademy.model.interfaces.Bounded;
 import com.nhnacademy.model.interfaces.Movable;
@@ -29,6 +30,7 @@ public class GameController implements MouseMotionListener, MouseListener {
     private List<Regionable> regionables;
     private List<Regionable> userBalls;
     private PlayBoard playBoard;
+    private ControlBar controlBar;
     private GameView view;
     private JFrame frame;
     private int moveCount;
@@ -120,6 +122,7 @@ public class GameController implements MouseMotionListener, MouseListener {
                 Regionable other = regionables.get(j);
                 if (isCollision(object, other)) {
                     ((Bounded) object).bounce(other);
+                    controlBar.updateSize();
                     if (other instanceof Brick) {
                         ((Brick) other).loseHp();
                         if (((Brick) other).isBroken()) removeList.add(other);
@@ -167,6 +170,10 @@ public class GameController implements MouseMotionListener, MouseListener {
         if (object instanceof PlayBoard) {
             playBoard = (PlayBoard) object;
         }
+        if (object instanceof ControlBar) {
+            controlBar = (ControlBar) object;
+        }
+
         regionables.add(object);
     }
 

@@ -29,6 +29,7 @@ public class PlayBoard extends Box {
         this.score += plusScore;
     }
 
+
     @Override
     public void paint(Graphics g) {
         super.paint(g);  // 부모 클래스의 paint() 메서드 호출 (박스 그리기)

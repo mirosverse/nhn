@@ -31,6 +31,8 @@ public class Config {
 
     // ControlBar
     public static final Color CONTROL_DEFAULT_COLOR = Color.GRAY;
+    public static final int CONTROL_WIDTH_DECREASE = -1;
+
 
     //PlayBoard
     public static final Color PLAYBOARD_DEFAULT_COLOR = Color.BLACK;
