@@ -1,10 +1,8 @@
 package com.nhnacademy.controller;
 
-import com.nhnacademy.command.ClickScreenCommand;
 import com.nhnacademy.model.Config;
 import com.nhnacademy.model.domain.ball.Ball;
 import com.nhnacademy.model.domain.ball.BoundedBall;
-import com.nhnacademy.model.domain.ball.MovableBall;
 import com.nhnacademy.model.domain.box.Brick;
 import com.nhnacademy.model.domain.box.BrickStatus;
 import com.nhnacademy.model.interfaces.Bounded;
@@ -108,18 +106,27 @@ public class GameController implements MouseMotionListener, MouseListener {
         view.update();
     }
 
-    // 충돌 감지 및 처리
+    // 충돌 감지 및 처리 (제거)
     private void collide(Regionable object) {
+        List<Brick> removeList = new ArrayList<>();
         if (object instanceof Bounded) {
             for (int j = 0; j < regionables.size(); j++) {
                 Regionable other = regionables.get(j);
 
                 if (isCollision(object, other)) {
                     ((Bounded) object).bounce(other);
+                    if(other instanceof Brick && !((Brick) other).getStatus().isUnbreakable()){
+                        ((Brick) other).loseHp();
+                        if(((Brick) other).isBroken()) remove(other);
+                    }
                     // logger.info("ball({})와 ball({})이 충돌하였습니다.", object.getId(),otherBall.getId());
                 }
             }
         }
+    }
+
+    private void remove(Regionable other) {
+        regionables.remove(other);
     }
 
     // 충돌 감지

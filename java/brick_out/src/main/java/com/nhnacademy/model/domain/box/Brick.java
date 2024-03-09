@@ -21,9 +21,13 @@ public class Brick extends Box implements Breakable {
         return status;
     }
 
+    public void loseHp() {
+        this.hp--;
+    }
+
     @Override
     public boolean isBroken() {
-        return !status.isUnbreakable() && hp == 0;
+        return !status.isUnbreakable() && hp <= 0;
     }
 
     public int getScore() {

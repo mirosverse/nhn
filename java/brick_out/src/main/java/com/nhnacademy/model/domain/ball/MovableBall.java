@@ -40,7 +40,7 @@ public class MovableBall extends Ball implements Movable {
     @Override
     public void move() {
         moveTo(getX() + getDX(), getY() + getDY());
-        logger.trace("{} : {}, {}, {}, {}", getId(), getX(), getY(), getRegion().getX(), getRegion().getY());
+//        logger.trace("{} : {}, {}, {}, {}", getId(), getX(), getY(), getRegion().getX(), getRegion().getY());
     }
 
     public void moveTo(int x, int y) {
