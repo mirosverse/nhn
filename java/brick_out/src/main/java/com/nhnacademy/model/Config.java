@@ -41,7 +41,7 @@ public class Config {
     // view
     public static final int DEFAULT_DT = 1;
     public static final int WALL_THICKNESS = 18;
-    public static final int CONTROL_DEFAULT_WIDTH = 300;
+    public static final int CONTROL_DEFAULT_WIDTH = 400;
     public static final int PLAYBOARD_THICKNESS = 18;
     public static final int BRICK_WIDTH = 48;
     public static final int BRICK_HEIGHT = 20;
