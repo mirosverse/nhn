@@ -32,15 +32,17 @@ public class Config {
     public static final int BRICK_UNBREAKABLE_SCORE = 0;
     public static final Color BRICK_UNBREAKABLE_COLOR = Color.DARK_GRAY;
 
-
     // ControlBar
     public static final Color CONTROL_DEFAULT_COLOR = Color.GRAY;
+
+    //PlayBoard
+    public static final Color PLAYBOARD_DEFAULT_COLOR = Color.GRAY;
 
 
     // view
     public static final int DEFAULT_DT = 10;
-    public static final int WALL_THICKNESS = 20;
-
+    public static final int WALL_THICKNESS = 18;
+    public static final int CONTROL_DEFAULT_WIDTH = 300;
 
     // controller
     public static final int FRAME_WIDTH = 500;

@@ -42,14 +42,12 @@ public class GameController implements MouseMotionListener {
         view.init();
         frame = new JFrame("Brick Out");
         Insets insets = frame.getInsets();
-        frame.setSize(Config.FRAME_WIDTH + 16, Config.FRAME_HEIGHT + 30);
+        frame.setSize(Config.FRAME_WIDTH + 10, Config.FRAME_HEIGHT + 39);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setVisible(true);
         frame.add(view);
         setMaxMoveCount(Config.MAX_MOVE_COUNT);
         run();
-
-
     }
 
     // 공의 이동을 담당

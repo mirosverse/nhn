@@ -4,7 +4,7 @@ import com.nhnacademy.model.Config;
 
 import java.awt.*;
 
-public class ControlBar extends Box{
+public class ControlBar extends MovableBox{
 
     public ControlBar(int x, int y, int width, int height) {
         this(x, y, width, height, Config.CONTROL_DEFAULT_COLOR);
