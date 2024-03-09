@@ -9,6 +9,8 @@ import com.nhnacademy.model.interfaces.Bounded;
 import com.nhnacademy.model.interfaces.Movable;
 import com.nhnacademy.model.interfaces.Regionable;
 import com.nhnacademy.view.GameView;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,6 +23,7 @@ import java.util.List;
 
 public class GameController implements MouseMotionListener, MouseListener {
     private static GameController instance;
+    Logger logger = LogManager.getLogger(this.getClass().getSimpleName());
 
     private List<Regionable> regionables;
     private List<Regionable> userBalls;
@@ -29,6 +32,8 @@ public class GameController implements MouseMotionListener, MouseListener {
     private int moveCount;
     private int maxMoveCount = 0;
     private boolean isRunning = false;
+
+
 
     private GameController() {
         regionables = new LinkedList<>();
@@ -108,20 +113,22 @@ public class GameController implements MouseMotionListener, MouseListener {
 
     // 충돌 감지 및 처리 (제거)
     private void collide(Regionable object) {
-        List<Brick> removeList = new ArrayList<>();
+        List<Regionable> removeList = new ArrayList<>();
         if (object instanceof Bounded) {
             for (int j = 0; j < regionables.size(); j++) {
                 Regionable other = regionables.get(j);
-
                 if (isCollision(object, other)) {
                     ((Bounded) object).bounce(other);
-                    if(other instanceof Brick && !((Brick) other).getStatus().isUnbreakable()){
+                    if(other instanceof Brick){
                         ((Brick) other).loseHp();
-                        if(((Brick) other).isBroken()) remove(other);
+                        if(((Brick) other).isBroken()) removeList.add(other);
                     }
-                    // logger.info("ball({})와 ball({})이 충돌하였습니다.", object.getId(),otherBall.getId());
+//                     logger.info("ball({})와 ball({})이 충돌하였습니다.", object.getId(),other.getId());
                 }
             }
+        }
+        for (Regionable regionable : removeList) {
+            remove(regionable);
         }
     }
 

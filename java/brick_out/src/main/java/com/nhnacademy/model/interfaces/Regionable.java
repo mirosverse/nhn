@@ -6,4 +6,6 @@ public interface Regionable {
     public int getX();
     public int getY();
     Rectangle getRegion();
+
+    int getId();
 }

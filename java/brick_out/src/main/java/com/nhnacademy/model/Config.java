@@ -39,7 +39,7 @@ public class Config {
 
 
     // view
-    public static final int DEFAULT_DT = 10;
+    public static final int DEFAULT_DT = 1;
     public static final int WALL_THICKNESS = 18;
     public static final int CONTROL_DEFAULT_WIDTH = 300;
     public static final int PLAYBOARD_THICKNESS = 18;
