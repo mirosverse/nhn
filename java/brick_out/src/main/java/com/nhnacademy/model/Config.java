@@ -7,7 +7,7 @@ import java.awt.*;
 public class Config {
 
     // Ball
-    public static final Color BALL_DEFAULT_COLOR = Color.BLACK;
+    public static final Color BALL_DEFAULT_COLOR = Color.LIGHT_GRAY;
 
 //    // MovableBall
 //    public static final int DEFAULT_DX = 0;
@@ -53,6 +53,9 @@ public class Config {
     public static final int FRAME_WIDTH = 500;
     public static final int FRAME_HEIGHT = 400;
     public static final int MAX_MOVE_COUNT = 0; // 값이 0이면 무한으로 처리
+
+    public static final int BALL_RADIUS = 13;
+
 
 
     // GameSetting

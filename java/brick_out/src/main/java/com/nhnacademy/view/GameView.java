@@ -3,6 +3,7 @@ package com.nhnacademy.view;
 import com.nhnacademy.controller.GameController;
 import com.nhnacademy.controller.GameSetting;
 import com.nhnacademy.model.Config;
+import com.nhnacademy.model.domain.ball.Ball;
 import com.nhnacademy.model.domain.box.*;
 import com.nhnacademy.model.domain.box.Box;
 import com.nhnacademy.model.interfaces.Paintable;
@@ -56,7 +57,12 @@ public class GameView extends JPanel {
                 x += Config.BRICK_WIDTH + Config.BRICK_MARGIN;
             }
         }
+    }
 
+    public void addBalls(List<Ball> balls){
+        for (Ball ball : balls) {
+            controller.add(ball);
+        }
     }
 
 

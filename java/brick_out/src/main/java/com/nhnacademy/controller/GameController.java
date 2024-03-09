@@ -51,8 +51,8 @@ public class GameController implements MouseMotionListener {
         frame.setVisible(true);
         frame.add(view);
 
-        view.addBricks(createBricks(GameSetting.EASY));
-
+        view.addBricks(createBricks(GameSetting.HARD));
+        view.addBalls(createBalls(GameSetting.EASY));
 
         setMaxMoveCount(Config.MAX_MOVE_COUNT);
         run();
@@ -72,6 +72,17 @@ public class GameController implements MouseMotionListener {
             bricks.add(new Brick(0, 0, Config.BRICK_WIDTH, Config.BRICK_HEIGHT, BrickStatus.Unbreakable));
         }
         return bricks;
+    }
+
+    public List<Ball> createBalls(GameSetting mode) {
+        List<Ball> balls = new ArrayList<>();
+        for (int i = 0; i < mode.getBallCount(); i++) {
+            balls.add(new BoundedBall(
+                    Config.FRAME_WIDTH / 2 - (mode.getBallCount() * (Config.BALL_RADIUS * 2)) / 2 + i * (Config.BALL_RADIUS * 2),
+                    Config.FRAME_HEIGHT - Config.WALL_THICKNESS - Config.BALL_RADIUS,
+                    Config.BALL_RADIUS));
+        }
+        return balls;
     }
 
 
