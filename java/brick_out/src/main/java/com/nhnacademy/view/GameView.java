@@ -11,7 +11,6 @@ import com.nhnacademy.model.interfaces.Regionable;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 

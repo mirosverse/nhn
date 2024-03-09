@@ -46,7 +46,6 @@ public class BoundedBall extends MovableBall implements Bounded {
         }
 
 //        logger.info("ball({})와 Brick({})이 충돌하였습니다. intersection: ({}). dx: ({}), dy: ({})", this.getId(), other.getId(), intersection.getBounds(), this.getDX(), this.getDY());
-
     }
 
     @Override

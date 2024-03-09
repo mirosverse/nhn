@@ -5,6 +5,7 @@ import com.nhnacademy.model.domain.ball.Ball;
 import com.nhnacademy.model.domain.ball.BoundedBall;
 import com.nhnacademy.model.domain.box.Brick;
 import com.nhnacademy.model.domain.box.BrickStatus;
+import com.nhnacademy.model.domain.box.PlayBoard;
 import com.nhnacademy.model.interfaces.Bounded;
 import com.nhnacademy.model.interfaces.Movable;
 import com.nhnacademy.model.interfaces.Regionable;
@@ -27,12 +28,12 @@ public class GameController implements MouseMotionListener, MouseListener {
 
     private List<Regionable> regionables;
     private List<Regionable> userBalls;
+    private PlayBoard playBoard;
     private GameView view;
     private JFrame frame;
     private int moveCount;
     private int maxMoveCount = 0;
     private boolean isRunning = false;
-
 
 
     private GameController() {
@@ -119,9 +120,9 @@ public class GameController implements MouseMotionListener, MouseListener {
                 Regionable other = regionables.get(j);
                 if (isCollision(object, other)) {
                     ((Bounded) object).bounce(other);
-                    if(other instanceof Brick){
+                    if (other instanceof Brick) {
                         ((Brick) other).loseHp();
-                        if(((Brick) other).isBroken()) removeList.add(other);
+                        if (((Brick) other).isBroken()) removeList.add(other);
                     }
 //                     logger.info("ball({})와 ball({})이 충돌하였습니다.", object.getId(),other.getId());
                 }
@@ -132,8 +133,11 @@ public class GameController implements MouseMotionListener, MouseListener {
         }
     }
 
-    private void remove(Regionable other) {
-        regionables.remove(other);
+    private void remove(Regionable obj) {
+        if(obj instanceof Brick){
+            playBoard.addScore(((Brick) obj).getStatus().getScore());
+        }
+        regionables.remove(obj);
     }
 
     // 충돌 감지
@@ -160,8 +164,10 @@ public class GameController implements MouseMotionListener, MouseListener {
         if (object instanceof BoundedBall) {
             userBalls.add(object);
         }
+        if (object instanceof PlayBoard) {
+            playBoard = (PlayBoard) object;
+        }
         regionables.add(object);
-
     }
 
     public void run() {
