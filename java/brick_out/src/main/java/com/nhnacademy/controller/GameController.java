@@ -1,5 +1,6 @@
 package com.nhnacademy.controller;
 
+import com.nhnacademy.command.ClickScreenCommand;
 import com.nhnacademy.model.Config;
 import com.nhnacademy.model.domain.ball.Ball;
 import com.nhnacademy.model.domain.ball.BoundedBall;
@@ -19,19 +20,21 @@ import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
 
-public class GameController implements MouseMotionListener {
+public class GameController implements MouseMotionListener, MouseListener {
     private static GameController instance;
 
     private List<Regionable> regionables;
+    private List<Regionable> userBalls;
     private GameView view;
     private JFrame frame;
     private int moveCount;
     private int maxMoveCount = 0;
+    private boolean isRunning = false;
 
     private GameController() {
         regionables = new LinkedList<>();
+        userBalls = new LinkedList<>();
         view = new GameView();
     }
 
@@ -53,6 +56,7 @@ public class GameController implements MouseMotionListener {
 
         view.addBricks(createBricks(GameSetting.HARD));
         view.addBalls(createBalls(GameSetting.EASY));
+        frame.addMouseListener(this);
 
         setMaxMoveCount(Config.MAX_MOVE_COUNT);
         run();
@@ -77,10 +81,14 @@ public class GameController implements MouseMotionListener {
     public List<Ball> createBalls(GameSetting mode) {
         List<Ball> balls = new ArrayList<>();
         for (int i = 0; i < mode.getBallCount(); i++) {
-            balls.add(new BoundedBall(
+
+            BoundedBall ball = new BoundedBall(
                     Config.FRAME_WIDTH / 2 - (mode.getBallCount() * (Config.BALL_RADIUS * 2)) / 2 + i * (Config.BALL_RADIUS * 2),
                     Config.FRAME_HEIGHT - Config.WALL_THICKNESS - Config.BALL_RADIUS,
-                    Config.BALL_RADIUS));
+                    Config.BALL_RADIUS);
+            ball.setDX(1);
+            ball.setDY(1);
+            balls.add(ball);
         }
         return balls;
     }
@@ -89,11 +97,10 @@ public class GameController implements MouseMotionListener {
     // 공의 이동을 담당
     public void move() {
         if ((getMaxMoveCount() == 0) || (getMoveCount() < getMaxMoveCount())) {
-            for (int i = 0; i < regionables.size(); i++) {
-                Regionable object = regionables.get(i);
-                if (object instanceof MovableBall) {
-                    ((Movable) object).move();
-                    collide(object);
+            for (Regionable userBall : userBalls) {     // 공들만 골라서 regionables 들과 비교
+                if (userBall instanceof Movable) {
+                    ((Movable) userBall).move();
+                    collide(userBall);
                 }
             }
         }
@@ -103,7 +110,7 @@ public class GameController implements MouseMotionListener {
 
     // 충돌 감지 및 처리
     private void collide(Regionable object) {
-        if (object instanceof BoundedBall) {
+        if (object instanceof Bounded) {
             for (int j = 0; j < regionables.size(); j++) {
                 Regionable other = regionables.get(j);
 
@@ -135,11 +142,17 @@ public class GameController implements MouseMotionListener {
                 throw new IllegalArgumentException();
             }
         }
+
+        if (object instanceof BoundedBall) {
+            userBalls.add(object);
+        }
         regionables.add(object);
+
     }
 
     public void run() {
         while (!Thread.currentThread().isInterrupted()) {
+            isRunning = true;
             move();
             try {
                 Thread.sleep(Config.DEFAULT_DT);
@@ -175,6 +188,31 @@ public class GameController implements MouseMotionListener {
 
     @Override
     public void mouseMoved(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
 
     }
 }

@@ -3,7 +3,7 @@ package com.nhnacademy.model.domain.box;
 import com.nhnacademy.model.Config;
 import com.nhnacademy.model.interfaces.Breakable;
 
-public class Brick extends MovableBox implements Breakable {
+public class Brick extends Box implements Breakable {
     private int hp;
     private BrickStatus status;
 
