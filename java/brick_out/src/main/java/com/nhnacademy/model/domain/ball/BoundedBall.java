@@ -35,6 +35,7 @@ public class BoundedBall extends MovableBall implements Bounded {
             setDX(-getDX());
         }
 
+        // 무한반사에 빠질 시 강제로 수정
         if(intersection.getWidth() ==1){
             if(getRegion().getX()<other.getRegion().getX() && getDX()>0) setDX(-getDX());
             if(getRegion().getX()>other.getRegion().getX() && getDX()<0) setDX(-getDX());
