@@ -23,6 +23,8 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import static com.sun.java.accessibility.util.AWTEventMonitor.addMouseMotionListener;
+
 public class GameController implements MouseMotionListener, MouseListener {
     private static GameController instance;
     Logger logger = LogManager.getLogger(this.getClass().getSimpleName());
@@ -36,6 +38,10 @@ public class GameController implements MouseMotionListener, MouseListener {
     private int moveCount;
     private int maxMoveCount = 0;
     private boolean isRunning = false;
+
+    private int dragStartX;
+    private int dragStartY;
+    private boolean isDragging;
 
 
     private GameController() {
@@ -55,14 +61,15 @@ public class GameController implements MouseMotionListener, MouseListener {
         view.init();
         frame = new JFrame("Brick Out");
         Insets insets = frame.getInsets();
-        frame.setSize(Config.FRAME_WIDTH + 10, Config.FRAME_HEIGHT + 39);
+        frame.setSize(Config.FRAME_WIDTH, Config.FRAME_HEIGHT);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setVisible(true);
         frame.add(view);
 
         view.addBricks(createBricks(GameSetting.HARD));
         view.addBalls(createBalls(GameSetting.EASY));
-        frame.addMouseListener(this);
+        view.addMouseListener(this);
+        view.addMouseMotionListener(this);
 
         setMaxMoveCount(Config.MAX_MOVE_COUNT);
         run();
@@ -122,7 +129,9 @@ public class GameController implements MouseMotionListener, MouseListener {
                 Regionable other = regionables.get(j);
                 if (isCollision(object, other)) {
                     ((Bounded) object).bounce(other);
-                    controlBar.updateSize();
+                    if(other instanceof ControlBar){
+                        controlBar.updateSize();
+                    }
                     if (other instanceof Brick) {
                         ((Brick) other).loseHp();
                         if (((Brick) other).isBroken()) removeList.add(other);
@@ -137,7 +146,7 @@ public class GameController implements MouseMotionListener, MouseListener {
     }
 
     private void remove(Regionable obj) {
-        if(obj instanceof Brick){
+        if (obj instanceof Brick) {
             playBoard.addScore(((Brick) obj).getStatus().getScore());
         }
         regionables.remove(obj);
@@ -209,37 +218,47 @@ public class GameController implements MouseMotionListener, MouseListener {
     }
 
     @Override
-    public void mouseDragged(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseMoved(MouseEvent e) {
-
-    }
-
-    @Override
     public void mouseClicked(MouseEvent e) {
 
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-
+        dragStartX = e.getX();
+        dragStartY = e.getY();
+        if (controlBar.getRegion().contains(dragStartX, dragStartY)) {
+            isDragging = true;
+        }
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-
+        isDragging = false;
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseDragged(MouseEvent e) {
+        if (isDragging) {
+            int dx = e.getX() - dragStartX;
+            dragStartX = e.getX();
+
+            // 드래그 방향 벡터만큼 컨트롤바 위치 이동
+            controlBar.getRegion().setLocation(controlBar.getX() + dx, controlBar.getY());
+            logger.info("드래그 중...  x: ({}), y: ({})    dx: ({})", controlBar.getX(), controlBar.getY(), dx);
+
+        }
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
 
     }
 }
