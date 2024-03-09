@@ -2,7 +2,7 @@ package com.nhnacademy.controller;
 
 public enum GameSetting {
     EASY(1, 0, 0, 1),
-    HARD(0.8, 0.2, 0.1, 1);
+    HARD(0.8, 0.2, 0.1, 2);
 
     private final double easyBrickRatio;
     private final double hardBrickRatio;
