@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dooray!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+    <meta name="google" content="notranslate">
+    <!--for Google -->
+    <meta name="author"                     content="조인현">
+    <meta name="keywords"                   content="두레이,dooray,cooperation,task,nhn entertainment,nhn ent,nhnent,nhn,엔에이치엔" />
+    <meta name="copyright"                  content="@NHN Corp" />
+    <meta name="application-name"           content="dooray" />
+    
+    <!--for Facebook-->
+    <meta property="og:url"                 content="https://nhnacademy.dooray.com/share/drive-files/ocfkrcbb5vui.p0sB3Ke2Tt64uXFPa1sU5A"/>
+    <meta property="og:type"                content="article"/>
+    <meta property="og:title"               content="space 5.jpg"/>
+    <meta property="og:image"               content="https://nhnacademy.dooray.com/dist/htmls/shared/images/shared_dooray_logo.png?t=1710295202447" />
+    <meta property="og:site_name"           content="Dooray!"/>
+    
+    <!--for Twitter-->
+    <meta name="twitter:card"               content="summary" />
+    <meta name="twitter:title"              content="space 5.jpg"/>
+    <meta name="twitter:image"              content="https://nhnacademy.dooray.com/dist/htmls/shared/images/shared_dooray_logo.png?t=1710295202447"/>
+    <meta name="twitter:site"               content="@dooray_com">
+    <meta name="twitter:creator"            content="조인현">
+    
+    <!--for naver search-->
+    <meta name="naver-site-verification" content="a2adcae29c599475c9a919c40bdc7ef5af9ff025"/>
+    
+    <meta name="google" content="notranslate">
+    <base href="/">
+    <link id="favicon" rel="shortcut icon" href="/favicon.ico?ver=4.0" sizes="16x16">
+    <link rel="stylesheet" href="/dist/resources/bundles/css/8.d8cd35594be185e833b8.css">
+    <link rel="stylesheet" href="/dist/resources/bundles/css/14.04c2916b3c5582cb6480.css">
+    <link rel="stylesheet" href="/dist/resources/bundles/css/11.569011d092f3c6475c83.css">
+    <link rel="stylesheet" href="/dist/resources/bundles/css/35.064641b0dff1ccc9670e.css">
+    <link rel="stylesheet" href="/dist/resources/bundles/css/83.12c9933c3d58a912458c.css">
+    <link rel="stylesheet" href="/dist/resources/bundles/css/86.f070485f73618eeec932.css">
+    <link rel="stylesheet" href="/dist/resources/bundles/css/168.b9500bb2bf8c8265c4ef.css">
+</head>
+<body>
+<script>
+(function (global) {
+    global.GA_FIRST_LOAD_TIMESTAMP = Date.now();
+})(window);
+</script>
+<div id="app">
+    <div class="loading-wrapper">
+      <div class="loading-wall loading-wall-layer">
+        <div class="loading-container">
+          <div class="loading"></div>
+          <div class="loading-text">loading...</div>
+        </div>
+      </div>
+    </div>
+</div>
+<style>
+    .browsehappy__wrapper {
+        margin: 0;
+        position: absolute;
+        top: 30%;
+        width: 100%;
+        text-align: center;
+    }
+
+    .browsehappy {
+        width: 500px;
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 20px;
+        text-align: left;
+    }
+
+    .browsehappy > p {
+        line-height: 30px;
+    }
+
+    .browsehappy__link {
+        margin-top: 20px;
+        padding-left: 20px;
+    }
+
+    .browsehappy__link li {
+        margin-bottom: 10px;
+    }
+</style>
+
+<!--[if lt IE 9]>
+<div class="browsehappy__wrapper">
+    <div class="browsehappy">
+        <p>Dooray! supports the latest browser only.</p>
+        <p>Please use below browser for access.</p>
+
+        <ul class="browsehappy__link">
+            <li><a href="https://www.google.com/chrome/" target="_blank">Use in Chrome</a></li>
+            <li><a href="https://www.mozilla.org/ko/firefox/new/?redirect_source=firefox-com" target="_blank">Use in Firefox</a></li>
+            <li><a href="https://support.microsoft.com/en-us/help/17621/internet-explorer-downloads" target="_blank">Use in IE11</a></li>
+        </ul>
+    </div>
+</div>
+<![endif]-->
+
+<script>
+if (navigator.appVersion.indexOf('MSIE 10') !== -1 || navigator.appVersion.indexOf('MSIE 9') !== -1 || navigator.appVersion.indexOf('MSIE 8') !== -1) {
+    function getHtml() {
+        var lang = navigator.language || navigator.browserLanguage;
+        lang = lang.substr(0, 2);
+        if (lang === 'ko') {
+            return '<div class="browsehappy__wrapper">' +
+                '<div class="browsehappy">' +
+                '<p>두레이는 현재 최신 브라우저만 지원합니다.</p><p>아래 브라우저를 사용하여 접속해 주세요.</p>' +
+                '<ul class="browsehappy__link">' +
+                '<li><a href="https://www.google.com/chrome/" target="_blank">Chrome에서 이용하기</a></li>' +
+                '<li><a href="https://www.mozilla.org/ko/firefox/new/?redirect_source=firefox-com" target="_blank">Firefox에서 이용하기</a></li>' +
+                '<li><a href="https://support.microsoft.com/en-us/help/17621/internet-explorer-downloads" target="_blank">Internet Explorer11에서 이용하기</a></li>' +
+                '</ul>' +
+                '</div>' +
+                '</div>';
+        } else {
+            return '<div class="browsehappy__wrapper">' +
+                '<div class="browsehappy">' +
+                '<p>Dooray! supports the latest browser only.</p><p>Please use below browser for access.</p>' +
+                '<ul class="browsehappy__link">' +
+                '<li><a href="https://www.google.com/chrome/" target="_blank">Use in Chrome</a></li>' +
+                '<li><a href="https://www.mozilla.org/ko/firefox/new/?redirect_source=firefox-com" target="_blank">Use in Firefox</a></li>' +
+                '<li><a href="https://support.microsoft.com/en-us/help/17621/internet-explorer-downloads" target="_blank">Use in IE11</a></li>' +
+                '</ul>' +
+                '</div>' +
+                '</div>';
+        }
+    }
+
+    document.execCommand('Stop');
+    document.getElementsByTagName('body')[0].innerHTML = getHtml();
+}
+</script>
+
+<script src="/dist/resources/bundles/js/runtime~driveSharedFilesApp.8577bc4917311f5af250.js"></script>
+<script src="/dist/resources/bundles/js/2.8bed9d3d96eba479a302.js"></script>
+<script src="/dist/resources/bundles/js/4.91271ae66d84cbdd9223.js"></script>
+<script src="/dist/resources/bundles/js/3.68c1a6f682735e914d95.js"></script>
+<script src="/dist/resources/bundles/js/6.58ead8c292f6ec14eb25.js"></script>
+<script src="/dist/resources/bundles/js/12.6092d7c172e8f33ccff4.js"></script>
+<script src="/dist/resources/bundles/js/15.0c9c47c786d527b74a63.js"></script>
+<script src="/dist/resources/bundles/js/13.70022343c3311596c8a6.js"></script>
+<script src="/dist/resources/bundles/js/9.baa0589ddc531a95cf6f.js"></script>
+<script src="/dist/resources/bundles/js/16.23bd9c9d8397e016af8a.js"></script>
+<script src="/dist/resources/bundles/js/8.39f9a5bd3b1f537fc8b8.js"></script>
+<script src="/dist/resources/bundles/js/17.cc5faaa6084507e95586.js"></script>
+<script src="/dist/resources/bundles/js/10.e32b97c751f471ca6a8f.js"></script>
+<script src="/dist/resources/bundles/js/14.66d62d01ff68bb140b08.js"></script>
+<script src="/dist/resources/bundles/js/11.65d3229335d9eec90bd5.js"></script>
+<script src="/dist/resources/bundles/js/21.842a9f52c2665673e9a9.js"></script>
+<script src="/dist/resources/bundles/js/25.09bbd7871ab9c0ae78b9.js"></script>
+<script src="/dist/resources/bundles/js/26.70a15d7e93778ed87709.js"></script>
+<script src="/dist/resources/bundles/js/35.fb08d70b160bebb2c88f.js"></script>
+<script src="/dist/resources/bundles/js/83.a2599d54308178a41fce.js"></script>
+<script src="/dist/resources/bundles/js/86.b827c055132cfc5c8bd2.js"></script>
+<script src="/dist/resources/bundles/js/168.89ece45c8f382b5cc452.js"></script>
+<iframe name="file_down" style="display: none;" width="0" height="0" scrolling="no"></iframe>
+</body>
+</html>
