@@ -77,7 +77,6 @@ public class Ball implements Regionable, Paintable {
         return String.format("(%d,%d,%d)", getX(), getY(), getRadius());
     }
 
-
     /**
      * @param color
      * @throws IllegalArgumentException color는 null 허용하지 않습니다
@@ -102,8 +101,7 @@ public class Ball implements Regionable, Paintable {
         g.fillOval(getX() - getRadius(), getY() - getRadius(), getRadius() * 2, getRadius() * 2);
 
         g.setColor(originalColor);
-        
-    }
 
+    }
 
 }

@@ -1,6 +1,7 @@
 package com.nhnacademy.model.domain.box;
 
 import com.nhnacademy.model.Config;
+import com.nhnacademy.model.domain.box.Box;
 
 import java.awt.*;
 

@@ -1,6 +1,7 @@
 package com.nhnacademy.view;
 
 import com.nhnacademy.controller.GameController;
+import com.nhnacademy.controller.GameSetting;
 import com.nhnacademy.model.Config;
 import com.nhnacademy.model.domain.ball.Ball;
 import com.nhnacademy.model.domain.box.*;

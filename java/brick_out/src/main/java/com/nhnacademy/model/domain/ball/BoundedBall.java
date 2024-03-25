@@ -36,18 +36,24 @@ public class BoundedBall extends MovableBall implements Bounded {
         }
 
         // 무한반사에 빠질 시 강제로 수정
-        if(intersection.getWidth() ==1){
-            if(getRegion().getX()<other.getRegion().getX() && getDX()>0) setDX(-getDX());
-            if(getRegion().getX()>other.getRegion().getX() && getDX()<0) setDX(-getDX());
+        if (intersection.getWidth() == 1) {
+            if (getRegion().getX() < other.getRegion().getX() && getDX() > 0)
+                setDX(-getDX());
+            if (getRegion().getX() > other.getRegion().getX() && getDX() < 0)
+                setDX(-getDX());
         }
-        if(intersection.getHeight() ==1){
-            if(getRegion().getY()<other.getRegion().getY() && getDY()>0) setDY(-getDY());
-            if(getRegion().getY()>other.getRegion().getY() && getDY()<0) setDY(-getDY());
+        if (intersection.getHeight() == 1) {
+            if (getRegion().getY() < other.getRegion().getY() && getDY() > 0)
+                setDY(-getDY());
+            if (getRegion().getY() > other.getRegion().getY() && getDY() < 0)
+                setDY(-getDY());
         }
 
-//        logger.info("ball({})와 Brick({})이 충돌하였습니다. intersection: ({}). dx: ({}), dy: ({})", this.getId(), other.getId(), intersection.toString(), this.getDX(), this.getDY());
-//        logger.info("ball: ({})", this.getRegion().toString());
-//        logger.info("box: ({})", other.getRegion().toString());
+        // logger.info("ball({})와 Brick({})이 충돌하였습니다. intersection: ({}). dx: ({}), dy:
+        // ({})", this.getId(), other.getId(), intersection.toString(), this.getDX(),
+        // this.getDY());
+        // logger.info("ball: ({})", this.getRegion().toString());
+        // logger.info("box: ({})", other.getRegion().toString());
     }
 
     @Override

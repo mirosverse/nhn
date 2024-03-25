@@ -1,6 +1,7 @@
 package com.nhnacademy;
 
 import com.nhnacademy.controller.GameController;
+import com.nhnacademy.view.GameView;
 
 /*
 게임 모드는 기본적으로 *HARD* 로 설정되어 있습니다.
@@ -12,10 +13,3 @@ import com.nhnacademy.controller.GameController;
 - 공의 개수 조절 -> GameSetting
 - 컨트롤바 줄어드는 속도 -> Config.CONTROL_WIDTH_DECREASE
  */
-
-public class Main {
-    public static void main(String[] args) {
-        GameController controller = GameController.getInstance();
-        controller.gameStart();
-    }
-}

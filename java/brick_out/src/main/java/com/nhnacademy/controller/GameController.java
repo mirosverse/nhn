@@ -35,6 +35,7 @@ public class GameController implements MouseMotionListener, MouseListener {
     private JFrame frame;
     private int moveCount;
     private int maxMoveCount = 0;
+    private boolean isRunning = false;
 
     private int dragStartX;
     private int dragStartY;
@@ -185,6 +186,7 @@ public class GameController implements MouseMotionListener, MouseListener {
 
     public void run() {
         while (!Thread.currentThread().isInterrupted()) {
+            isRunning = true;
             move();
             try {
                 Thread.sleep(Config.DEFAULT_DT);

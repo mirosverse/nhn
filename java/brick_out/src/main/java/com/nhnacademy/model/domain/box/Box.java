@@ -37,6 +37,7 @@ public class Box implements Regionable, Paintable {
         this.region = new Rectangle(x, y, width, height);
         this.color = color;
 
+//        logger.trace("Box created : {}, {}", x, y);
     }
 
     public int getId() {
