@@ -1,0 +1,86 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Main",
+      "request": "launch",
+      "mainClass": "com.nhnacademy.Main",
+      "projectName": "snc"
+    },
+    {
+      "type": "java",
+      "name": "Quiz09",
+      "request": "launch",
+      "mainClass": "com.nhnacademy.Quiz09",
+      "projectName": "network"
+    },
+    {
+      "type": "java",
+      "name": "Exam_05",
+      "request": "launch",
+      "mainClass": "com.nhnacademy.Exam_05",
+      "projectName": "network"
+    },
+    {
+      "type": "java",
+      "name": "Exam_04",
+      "request": "launch",
+      "mainClass": "com.nhnacademy.Exam_04",
+      "projectName": "network"
+    },
+    {
+      "type": "java",
+      "name": "Exam06",
+      "request": "launch",
+      "mainClass": "com.nhnacademy.Exam06",
+      "projectName": "network"
+    },
+    {
+      "type": "java",
+      "name": "Echo",
+      "request": "launch",
+      "mainClass": "com.nhnacademy.Echo",
+      "projectName": "network"
+    },
+    {
+      "type": "java",
+      "name": "Exam04",
+      "request": "launch",
+      "mainClass": "com.nhnacademy.Exam04",
+      "projectName": "network"
+    },
+    {
+      "type": "java",
+      "name": "Exam02",
+      "request": "launch",
+      "mainClass": "com.nhnacademy.Exam02",
+      "projectName": "network"
+    },
+    {
+      "type": "java",
+      "name": "Current File",
+      "request": "launch",
+      "mainClass": "${file}"
+    },
+    {
+      "type": "java",
+      "name": "Exam01",
+      "request": "launch",
+      "mainClass": "com.nhnacademy.Exam01",
+      "projectName": "network",
+      "args": ["1", "60000"]
+    },
+    {
+      "type": "java",
+      "name": "Exam03",
+      "request": "launch",
+      "mainClass": "com.nhnacademy.Exam03",
+      "projectName": "network",
+      "args": ["localhost", "12345"]
+    }
+  ]
+}

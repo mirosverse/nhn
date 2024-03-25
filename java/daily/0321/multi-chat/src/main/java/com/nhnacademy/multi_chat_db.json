@@ -1,0 +1,37 @@
+{
+  "메시지 전송": [
+    { "target_id": "111", "id": 1, "message": "ID222 : hi", "type": "MESSAGE" },
+    {
+      "target_id": "222",
+      "id": 2,
+      "message": "ID111 : hello",
+      "type": "MESSAGE"
+    },
+    {
+      "target_id": "222",
+      "id": 3,
+      "message": "ID111 : I'm 111",
+      "type": "MESSAGE"
+    },
+    {
+      "target_id": "111",
+      "id": 4,
+      "message": "ID222 : I'm 222",
+      "type": "MESSAGE"
+    }
+  ],
+  "접속 요청": {
+    "요청": [
+      { "id": 1, "type": "CONNECT", "client_id": "111" },
+      { "id": 2, "type": "CONNECT", "client_id": "222" },
+      { "id": 3, "type": "CONNECT", "client_id": "222" },
+      { "id": 4, "type": "CONNECT", "client_id": "111" }
+    ],
+    "응답": [
+      { "response": "ok", "id": 1, "type": "CONNECT", "client_id": "111" },
+      { "response": "ok", "id": 2, "type": "CONNECT", "client_id": "222" },
+      { "response": "ok", "id": 3, "type": "CONNECT", "client_id": "222" },
+      { "response": "ok", "id": 4, "type": "CONNECT", "client_id": "111" }
+    ]
+  }
+}
