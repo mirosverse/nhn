@@ -1,5 +1,6 @@
 # 복원한 DatamotionMovieDatabase에서,아래 질의들을 SQL Query로 작성
-날짜 : 2024.04.07
+날짜 : 2024.04.07<br>
+사이트 : https://movie.datamotion.co.kr/Movie/?ID=177 <br>
 
 ## 질의
 01. 영화 '퍼스트 맨'의 제작 연도, 영문 제목, 러닝 타임, 플롯을 출력하세요.
