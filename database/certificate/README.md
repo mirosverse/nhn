@@ -194,3 +194,9 @@ ORDER BY
       - 나는 세대에 가족번호를 인덱스로 사람들을 넣었는데, 이럼 가족들의 범위가 애매하고
   - 사람이 집을 가지면, 이사를 갈때마다 사람이 업데이트되는데 이게 error...
       - ⇒ 세대주만 집을 가지는게 베스트 !
+
+## 피드백 개선 버전
+- 요구사항을 더 자세하게 
+- household의 개념을 재정의했다.
+  - 그에 따라 changeReason테이블이 HouseholdHistory, AddressHistory, ChangeReason테이블 나뉘었다.
+- insert 더미데이터와 select도 바뀜
