@@ -1,0 +1,48 @@
+{
+  "items": [
+    {
+      "defense": 10,
+      "attack": 10,
+      "attackSpeed": 10,
+      "health": 300,
+      "model": "item300",
+      "id": "300",
+      "speed": 10
+    },
+    {
+      "defense": 3,
+      "attack": 20,
+      "attackSpeed": 3,
+      "health": 200,
+      "model": "item02",
+      "id": "02",
+      "speed": 3
+    }
+  ],
+  "users": [
+    {
+      "userItems": [
+        {
+          "defense": 10,
+          "attack": 10,
+          "attackSpeed": 10,
+          "health": 300,
+          "model": "item300",
+          "id": "300",
+          "speed": 10
+        },
+        {
+          "defense": 3,
+          "attack": 20,
+          "attackSpeed": 3,
+          "health": 200,
+          "model": "item02",
+          "id": "02",
+          "speed": 3
+        }
+      ],
+      "nickname": "xtra",
+      "id": "1234"
+    }
+  ]
+}
